@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
+    UserID: DataTypes.INTEGER,
     topicID: DataTypes.INTEGER,
     postedBy: DataTypes.STRING
   });
