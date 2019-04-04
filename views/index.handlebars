@@ -5,10 +5,13 @@
             <ul>
                 {{#each wishes}}
                 <li>
-                    <div class="post-preview"></div>
-                    <p class="post-preview"> {{this.title}}</p>
-                    <p class="post-subtitle">{{this.subtitle}}</p>
-                    <p class="post-meta">{{this.postedby}}</p>
+                    <div class="post-preview"><a href="post.html">
+                            <p class="post-title"> {{this.title}}</p>
+                        </a>
+                        <p class="post-subtitle">{{this.subtitle}}</p>
+                        <p class="post-body">{{this.body}}</p>
+                        <p class="post-meta">{{this.postedby}}</p>
+                    </div>
         </div>
         </li>
         {{/each}}
