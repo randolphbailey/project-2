@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/HomeStyles.css" media="screen" title="no title" charset="utf-8">
+
   <title>UT BootCamp Students' Forum</title>
   {{!-- Favicon to be added later --}}
   <link rel="shortcut icon" type="image/ico" href="#" />
@@ -35,16 +36,19 @@
           <li class="nav-item">
             <a class="nav-link" href="/post">Sample Post</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" id="loginBtn" class="navbar-right nav-link navbar-text" href="/login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link nav-item" id="createBtn" class="navbar-right nav-link navbar-text" href="/register">Register</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+
 
   <!-- Page Header -->
   <header class="masthead img-fluid" style="background-image: url('img/bkg.jpg')">
@@ -96,8 +100,10 @@
         </div>
       </div>
     </div>
+
   </footer>
   <script src="js/index.js" type="text/javascript"></script>
+
 </body>
 
 </html>
