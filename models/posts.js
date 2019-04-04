@@ -8,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    topicID: DataTypes.INTEGER
+    topicID: DataTypes.INTEGER,
+    postedBy: DataTypes.STRING
   });
   return Posts;
 };
