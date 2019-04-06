@@ -38,10 +38,10 @@
             <a class="nav-link" href="/post">Sample Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <button class="nav-link" href="/login" data-toggle="modal" data-target="#loginModal">Login</button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/register">Register</a>
+            <button class="nav-link" href="/login" data-toggle="modal" data-target="#registerModal">Register</button>
           </li>
         </ul>
       </div>
@@ -99,6 +99,64 @@
       </div>
     </div>
   </footer>
+  
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+              <label for="exampleInputUsername1">Username</label>
+              <input class="form-control login-username" placeholder="Username">
+          </div>
+          <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input class="form-control login-password" placeholder="Password" type="password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="loginSubmit">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+              <label for="exampleInputUsername1">Username</label>
+              <input class="form-control register-username" placeholder="Username">
+          </div>
+          <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input class="form-control register-password" placeholder="Password" type="password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="registerSubmit">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/index.js" type="text/javascript"></script>
 </body>
 
