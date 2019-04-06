@@ -4,14 +4,24 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/HomeStyles.css" media="screen" title="no title" charset="utf-8">
   <title>UT BootCamp Students' Forum</title>
+  {{!--
+  <!-- Custom fonts for this template --> --}}
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
   {{!-- Favicon to be added later --}}
   <link rel="shortcut icon" type="image/ico" href="#" />
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   {{!-- moment in case we need it to save time of somments and posts --}}
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
@@ -35,13 +45,13 @@
             <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/post">Sample Post</a>
+            <a class="nav-link" href="/post" data-toggle="modal" data-target="#createpostModal">Create Post</a>
           </li>
           <li class="nav-item">
-            <button class="nav-link" href="/login" data-toggle="modal" data-target="#loginModal">Login</button>
+            <a class="nav-link" href="/login" data-toggle="modal" data-target="#loginModal">Login</a>
           </li>
           <li class="nav-item">
-            <button class="nav-link" href="/login" data-toggle="modal" data-target="#registerModal">Register</button>
+            <a class="nav-link" href="/login" data-toggle="modal" data-target="#registerModal">Register</a>
           </li>
         </ul>
       </div>
@@ -99,10 +109,11 @@
       </div>
     </div>
   </footer>
-  
+
 
   <!-- Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -113,12 +124,12 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-              <label for="exampleInputUsername1">Username</label>
-              <input class="form-control login-username" placeholder="Username">
+            <label for="exampleInputUsername1">Username</label>
+            <input class="form-control login-username" placeholder="Username">
           </div>
           <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input class="form-control login-password" placeholder="Password" type="password">
+            <label for="exampleInputPassword1">Password</label>
+            <input class="form-control login-password" placeholder="Password" type="password">
           </div>
         </div>
         <div class="modal-footer">
@@ -130,7 +141,8 @@
   </div>
 
   <!-- Register Modal -->
-  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -141,12 +153,12 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-              <label for="exampleInputUsername1">Username</label>
-              <input class="form-control register-username" placeholder="Username">
+            <label for="exampleInputUsername1">Username</label>
+            <input class="form-control register-username" placeholder="Username">
           </div>
           <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input class="form-control register-password" placeholder="Password" type="password">
+            <label for="exampleInputPassword1">Password</label>
+            <input class="form-control register-password" placeholder="Password" type="password">
           </div>
         </div>
         <div class="modal-footer">
@@ -156,8 +168,52 @@
       </div>
     </div>
   </div>
+  <!-- Create Post Modal -->
+  <div class="modal fade" id="createpostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Create a Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="post-title">Post Title</label>
+            <input class="form-control register-username" placeholder="Title">
+          </div>
 
-  <script src="js/index.js" type="text/javascript"></script>
+          <div class="form-group">
+            <label for="post-post">Post</label>
+            <textarea class="form-control register-password" placeholder="Post" type="password" rows="3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="registerSubmit">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js" type="text/javascript"></script>
 </body>
 
 </html>
