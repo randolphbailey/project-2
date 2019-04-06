@@ -15,6 +15,15 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/create", function(req, res) {
+    db.Posts.findAll({}).then(function(results) {
+      res.render("index", {
+        msg: "Welcome!",
+        posts: results
+      });
+    });
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     // eslint-disable-next-line prettier/prettier

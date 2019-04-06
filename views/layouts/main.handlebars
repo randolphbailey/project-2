@@ -10,7 +10,7 @@
   <title>UT BootCamp Students' Forum</title>
   {{!--
   <!-- Custom fonts for this template --> --}}
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
@@ -52,7 +52,7 @@
             <a class="nav-link" href="/login" data-toggle="modal" data-target="#loginModal">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login" data-toggle="modal" data-target="#registerModal">Register</a>
+            <a class="nav-link" href="/register" data-toggle="modal" data-target="#registerModal">Register</a>
           </li>
           <li>
             <div class="dropdown">
@@ -209,23 +209,31 @@
           </div>
           <div class="form-group">
             <label for="post-title">Post Title</label>
-            <input class="form-control register-username" placeholder="Title">
+            <input class="form-control post-title" placeholder="Title">
           </div>
 
           <div class="form-group">
             <label for="post-post">Post</label>
-            <textarea class="form-control register-password" placeholder="Post" type="password" rows="3">
+            <textarea class="form-control post-body" placeholder="Post">
+
+
+
             </textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="registerSubmit">Create</button>
+            <button type="button" class="btn btn-primary" id="createpost">Create</button>
           </div>
         </div>
       </div>
     </div>
 
+
     <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/login.js" type="text/javascript"></script>
+    <script src="js/members.js" type="text/javascript"></script>
+    <script src="js/signup.js" type="text/javascript"></script>
+    <script src="js/posts.js" type="text/javascript"></script>
 </body>
 
 </html>
