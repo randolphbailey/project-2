@@ -83,6 +83,20 @@ img::-moz-selection {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+.dropdown-toggle {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.dropdown-item {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 13px;
+  text-transform: uppercase;
+  color: #343a40;
+}
 @media only screen and (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;
