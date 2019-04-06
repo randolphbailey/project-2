@@ -30,6 +30,21 @@ module.exports = function(app) {
       });
   });
 
+  // Route for creating a post.
+  app.post("/api/create", function(req, res) {
+    db.Posts.create({
+      title: req.body.title,
+      body: req.body.body
+    })
+      .then(function() {
+        res.send(200);
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+  });
+
   // Route for logging out user
   app.get("/logout", function(req, res) {
     req.logout();
