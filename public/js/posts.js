@@ -2,8 +2,8 @@
 // When the create button is clicked,grab the input val
 $(document).ready(function() {
   $("#createpost").on("click", function() {
-    var titleInput = $(".post-title");
-    var bodyInput = $(".post-body");
+    var titleInput = $("#post-title");
+    var bodyInput = $("#post-body");
 
     var postData = {
       title: titleInput.val().trim(),
@@ -23,8 +23,8 @@ $(document).ready(function() {
     $.post("/api/create", {
       title: title,
       body: body
-    }).then(function(data) {
-      window.location.replace(data);
+    }).then(function() {
+      window.location.reload();
       // If there's an error, log the error
     });
   }

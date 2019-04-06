@@ -37,7 +37,7 @@ module.exports = function(app) {
       body: req.body.body
     })
       .then(function() {
-        res.redirect(307, "/");
+        res.send(200);
       })
       .catch(function(err) {
         console.log(err);
