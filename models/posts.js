@@ -1,15 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
   var Posts = sequelize.define("Posts", {
-    title: DataTypes.STRING,
-    body: DataTypes.TEXT,
-    id: {
+    postBody: DataTypes.TEXT,
+    postID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    UserID: DataTypes.INTEGER,
-    topicID: DataTypes.INTEGER,
-    postedBy: DataTypes.STRING
+    postedBy: DataTypes.INTEGER,
+    postTopic: DataTypes.INTEGER
   });
+
+  Posts.associate = function(models) {
+    Posts.belongsTo(models.Topics);
+  };
+
   return Posts;
 };
