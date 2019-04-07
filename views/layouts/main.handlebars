@@ -46,13 +46,17 @@
             <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/post" data-toggle="modal" data-target="#createpostModal">Create Post</a>
+            <a class="nav-link" id="creatpostBtn" href="/post" data-toggle="modal" data-target="#createpostModal">Create
+              Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login" data-toggle="modal" data-target="#loginModal">Login</a>
+            <a class="nav-link" id="loginBtn" href="/login" data-toggle="modal" data-target="#loginModal">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/register" data-toggle="modal" data-target="#registerModal">Register</a>
+            <a class="nav-link" id="logoutBtn">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="createBtn" href="/register" data-toggle="modal" data-target="#registerModal">Register</a>
           </li>
           <li>
             <div class="dropdown">
@@ -228,9 +232,10 @@
 
 
     <script src="js/index.js" type="text/javascript"></script>
+    {{!--
     <script src="js/login.js" type="text/javascript"></script>
     <script src="js/members.js" type="text/javascript"></script>
-    <script src="js/signup.js" type="text/javascript"></script>
+    <script src="js/signup.js" type="text/javascript"></script> --}}
     <script src="js/posts.js" type="text/javascript"></script>
 </body>
 
