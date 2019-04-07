@@ -3,7 +3,8 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-
+$("#logoutBtn").hide();
+$("#creatpostBtn").hide();
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -116,6 +117,7 @@ $("#loginSubmit").on("click", function() {
   loginUser(userData.username, userData.password);
   usernameInput.val("");
   passwordInput.val("");
+  HideShow();
 });
 
 // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
@@ -132,7 +134,15 @@ function loginUser(username, password) {
       console.log(err);
     });
 }
-
+// function to hide login button and showing logout button
+function HideShow() {
+  $("#createBtn").hide();
+  $("#loginBtn").hide();
+  $("#logoutBtn").show();
+  $("#creatpostBtn").show();
+  $("#loginModal").modal("toggle");
+  console.log("You created an account!");
+}
 // REGISTER
 // When the signup button is clicked, we validate the username and password are not blank
 $("#registerSubmit").on("click", function() {
@@ -153,6 +163,7 @@ $("#registerSubmit").on("click", function() {
   signUpUser(userData.username, userData.password);
   usernameInput.val("");
   passwordInput.val("");
+  HideShow();
 });
 
 // Does a post to the signup route. If successful, we are redirected to the members page
@@ -161,8 +172,10 @@ function signUpUser(username, password) {
     username: username,
     password: password
   })
-    .then(function(data) {
-      window.location.replace(data);
+
+    .then(function() {
+      window.location.reload();
+
       // If there's an error, handle it by throwing up a bootstrap alert
     })
     .catch(handleLoginErr);
