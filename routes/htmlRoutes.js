@@ -15,15 +15,6 @@ module.exports = function(app) {
     });
   });
 
-  // app.get("/api/create", function(req, res) {
-  //   db.Posts.findAll({}).then(function(results) {
-  //     res.render("index", {
-  //       msg: "Welcome!",
-  //       posts: results
-  //     });
-  //   });
-  // });
-
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     // eslint-disable-next-line prettier/prettier
@@ -44,7 +35,7 @@ module.exports = function(app) {
   app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/");
     }
     res.sendFile(path.join(__dirname, "../public/html/signup.html"));
   });
@@ -52,7 +43,7 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/");
     }
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
