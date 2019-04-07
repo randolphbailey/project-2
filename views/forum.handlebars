@@ -1,13 +1,13 @@
 <!-- Main Content -->
 <div class="container">
-    {{#each forums}}
+    {{#each topics}}
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
-                <a href="{{this.route}}">
-                    <h2 class="post-title">{{this.name}}</h2>
+                <a href="{{this.id}}">
+                    <h2 class="post-title">{{this.title}}</h2>
                 <h3 class="post-subtitle">
-                    {{this.description}}
+                    {{this.subtitle}}
                 </h3>
                 </a>
             </div>

@@ -1,5 +1,6 @@
 // var path = require("path");
 var db = require("../models");
+var forums = require("../models/forums.json");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/isAuthenticated");
@@ -7,46 +8,21 @@ var isAuthenticated = require("../config/isAuthenticated");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Posts.findAll({}).then(function(results) {
-      res.render("index", {
-        msg: "Welcome!",
-        posts: results
-      });
+    res.render("index", {
+      msg: "Welcome!",
+      forums: forums
     });
   });
 
-  // // Load example page and pass in an example by id
-  // app.get("/example/:id", function(req, res) {
-  //   // eslint-disable-next-line prettier/prettier
-  //   db.Posts.findOne({ where: { id: req.params.id } }).then(function(results) {
-  //     res.render("example", {
-  //       example: results
-  //     });
-  //   });
-  // });
-
-  // // Load example page and pass in an example by id
-  // app.get("/example/login", function(req, res) {
-  //   // eslint-disable-next-line prettier/prettier
-  //   res.render("login", {});
-  // });
-
-  // // Login
-  // app.get("/signup", function(req, res) {
-  //   // If the user already has an account send them to the members page
-  //   if (req.user) {
-  //     res.redirect("/members");
-  //   }
-  //   res.sendFile(path.join(__dirname, "../public/html/signup.html"));
-  // });
-
-  // app.get("/login", function(req, res) {
-  //   // If the user already has an account send them to the members page
-  //   if (req.user) {
-  //     res.redirect("/members");
-  //   }
-  //   res.sendFile(path.join(__dirname, "../public/html/login.html"));
-  // });
+  //Load topics page given a forum name
+  app.get("/f/:name", function(req, res) {
+    // eslint-disable-next-line prettier/prettier
+    db.Posts.findAll({ where: { forum: req.params.name } }).then(function(results) {
+      res.render("forum", {
+        topics: results
+      });
+    });
+  });
 
   // // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
