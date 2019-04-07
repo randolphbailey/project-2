@@ -1,4 +1,4 @@
-var path = require("path");
+// var path = require("path");
 var db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
@@ -49,9 +49,9 @@ module.exports = function(app) {
   // });
 
   // // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/members", isAuthenticated, function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/html/members.html"));
-  // });
+  app.get("/members", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/members.html"));
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
