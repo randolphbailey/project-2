@@ -1,6 +1,5 @@
 // var path = require("path");
 var db = require("../models");
-var forums = require("../models/forums.json");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/isAuthenticated");
@@ -8,18 +7,32 @@ var isAuthenticated = require("../config/isAuthenticated");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("index", {
-      msg: "Welcome!",
-      forums: forums
+    db.Forums.findAll({}).then(function(results) {
+      res.render("index", {
+        msg: "Welcome!",
+        forums: results
+      });
     });
   });
 
   //Load topics page given a forum name
-  app.get("/f/:name", function(req, res) {
-    // eslint-disable-next-line prettier/prettier
-    db.Posts.findAll({ where: { forum: req.params.name } }).then(function(results) {
+  app.get("/f/:id", function(req, res) {
+    db.Topics.findAll({ where: { ForumForumID: req.params.id } }).then(function(
+      results
+    ) {
       res.render("forum", {
         topics: results
+      });
+    });
+  });
+
+  //Load topics page given a forum name
+  app.get("/t/:id", function(req, res) {
+    db.Topics.findAll({ where: { TopicTopicID: req.params.id } }).then(function(
+      results
+    ) {
+      res.render("topic", {
+        posts: results
       });
     });
   });
