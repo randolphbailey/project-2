@@ -1,24 +1,43 @@
+{{!-- u can delete the following, i couldnt test the real thing since it is not
+creating a table for me
+--}}
+<div class="card bkg2">
+    <div class="card-header header"><b>Forums</b></div>
+    <div class="card-body">
+        <ul class="">
+            <li class="nav-item" scope="col"><a class="nav-link">Forum 1</a></li>
+        </ul>
+    </div>
+</div>
+<div class="card bkg2">
+    <div class="card-header header"><b>Forums</b></div>
+    <div class="card-body">
+        <ul class="">
+            <li class="nav-item" scope="col"><a class="nav-link">Forum 1</a></li>
+        </ul>
+    </div>
+</div>
 <!-- Main Content -->
 <div class="container">
     {{#each forums}}
-    <div class="row">
+    <div class="row card bkg2">
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
                 <a href="f/{{this.forumID}}">
-                    <h2 class="post-title">{{this.forumName}}</h2>
-                <h3 class="post-subtitle">
-                    {{this.forumDescription}}
-                </h3>
+                    <h2 class="post-title card-header header">{{this.forumName}}</h2>
+                    <h3 class="post-subtitle card-body">
+                        {{this.forumDescription}}
+                    </h3>
                 </a>
             </div>
         </div>
     </div>
     {{/each}}
-        <!-- Pager -->
-        <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-        </div>
+    <!-- Pager -->
+    <div class="clearfix">
+        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
     </div>
+</div>
 </div>
 </div>
 
