@@ -3,6 +3,15 @@ body {
   color: #212529;
   font-family: Lora, "Times New Roman", serif;
 }
+
+.card-header {
+  background-color: #2a333e;
+  color: white;
+}
+.card-body {
+  background-color: #181d23;
+  color: white;
+}
 p {
   line-height: 1.5;
   margin: 30px 0;
@@ -151,6 +160,7 @@ img::-moz-selection {
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
     color: #0085a1;
   }
+
   #mainNav.is-visible {
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
@@ -353,15 +363,15 @@ footer .copyright {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .btn-primary {
-  background-color: #0085a1;
-  border-color: #0085a1;
+  background-color: #2a333e;
+  border-color: #2a333e;
 }
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
   color: #fff;
-  background-color: #00657b !important;
-  border-color: #00657b !important;
+  background-color: #2a333e !important;
+  border-color: #2a333e !important;
 }
 .btn-lg {
   font-size: 16px;
