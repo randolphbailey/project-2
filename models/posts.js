@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
     postedBy: DataTypes.INTEGER,
-    postTopic: DataTypes.INTEGER
+    postTopic: DataTypes.STRING
   });
 
   Posts.associate = function(models) {

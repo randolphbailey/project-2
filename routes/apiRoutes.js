@@ -32,8 +32,8 @@ module.exports = function(app) {
   // Route for creating a post.
   app.post("/api/create", function(req, res) {
     db.Posts.create({
-      title: req.body.title,
-      body: req.body.body
+      postTopic: req.body.title,
+      postBody: req.body.body
     })
       .then(function() {
         res.send(200);
