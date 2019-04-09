@@ -41,8 +41,15 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
+//testing parameters
+var syncOptions = { force: false };
+
+if (process.env.NODE_ENV === "test") {
+  syncOptions = { force: true };
+}
+
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> Listening on port %s. Visit http://localhost:%s/ in your browser.",
