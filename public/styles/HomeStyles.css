@@ -110,6 +110,7 @@ img::-moz-selection {
 h7 {
   font-size: 0.8em;
 }
+
 @media only screen and (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;
