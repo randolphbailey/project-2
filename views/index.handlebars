@@ -1,44 +1,35 @@
-{{!-- u can delete the following, i couldnt test the real thing since it is not
-creating a table for me
---}}
-
-<div class="card bkg2">
-    <div class="card-header header"><b>Forums</b></div>
-    <div class="card-body">
-        <ul class="">
-            <li class="nav-item" scope="col"><a class="nav-link">Forum 1</a></li>
-        </ul>
-    </div>
-</div>
-<div class="card bkg2">
-    <div class="card-header header"><b>Forums</b></div>
-    <div class="card-body">
-        <ul class="">
-            <li class="nav-item" scope="col"><a class="nav-link">Forum 1</a></li>
-        </ul>
-    </div>
-</div>
-
 <!-- Main Content -->
-<div class="container">
-    {{#each forums}}
-    <div class="row card bkg2">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-preview">
-                <a href="f/{{this.forumID}}">
-                    <h2 class="post-title card-header header">{{this.forumName}}</h2>
-                    <h3 class="post-subtitle card-body">
-                        {{this.forumDescription}}
-                    </h3>
-                </a>
-            </div>
+
+{{#each forums}}
+<a href="f/{{this.TopicTopicID}}"> {{this.postedBy}}
+    <h2 class="post-title card-header header">{{this.topicSubject}}</h2>
+    <div class="card-body mb-2">
+
+        <div class="post-subtitle nav-item" scope="col">
+            <a class="nav-link">
+                {{this.topicBody}}
+            </a>
         </div>
+
+        <ul>
+            {{#each comment}}
+            <li class="nav-item">
+                <a class="nav-link">
+                    {{this.postedBy}}
+                </a>
+                <h7> {{this.postBody}}</h7>
+            </li>
+        </ul>
+        {{/each}}
+        <input class="form-control"></input>
     </div>
-    {{/each}}
-    <!-- Pager -->
-    <div class="clearfix">
-        <a class="btn btn-primary float-right mt-3" href="#">Older Posts &rarr;</a>
-    </div>
+</a>
+
+{{/each}}
+<!-- Pager -->
+<div class="clearfix">
+    <a class="btn btn-primary float-right mt-3" href="#">Older Posts &rarr;</a>
+</div>
 </div>
 </div>
 </div>

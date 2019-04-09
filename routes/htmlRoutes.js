@@ -7,13 +7,26 @@ var isAuthenticated = require("../config/isAuthenticated");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Forums.findAll({}).then(function(results) {
+    db.Topics.findAll({}).then(function(results) {
       res.render("index", {
         msg: "Welcome!",
         forums: results
       });
     });
   });
+
+  //load posts and sort them by time created
+  // app.get("/bytime", function(req, res) {
+  //   db.Forums.findAll({
+  //     limit: 10,
+  //     order: [["updatedAt", "DESC"]]
+  //   }).then(function(results) {
+  //     res.render("index", {
+  //       msg: "Welcome!",
+  //       forums: results
+  //     });
+  //   });
+  // });
 
   //Load topics page given a forum name
   app.get("/f/:id", function(req, res) {

@@ -46,8 +46,8 @@
             <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="creatpostBtn" href="/post" data-toggle="modal" data-target="#createpostModal">Create
-              Post</a>
+            <a class="nav-link" id="creattopicBtn" href="/topic" data-toggle="modal" data-target="#createtopicModal">Create
+              Topic</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="loginBtn" href="/login" data-toggle="modal" data-target="#loginModal">Login</a>
@@ -125,9 +125,9 @@
                 Organize by
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Newest</a>
-                <a class="dropdown-item" href="#">Author</a>
-                <a class="dropdown-item" href="#">More comments</a>
+                <a class="dropdown-item bytime" href="bytime">Newest</a>
+                {{!-- <a class="dropdown-item byauthor" href="#">Author</a>
+                <a class="dropdown-item bycomments" href="#">More comments</a> --}}
               </div>
             </div>
 
@@ -233,44 +233,44 @@
       </div>
     </div>
   </div>
-  <!-- Create Post Modal -->
-  <div class="modal fade" id="createpostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  <!-- Create Topic Modal -->
+  <div class="modal fade" id="createtopicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Create a Post</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Create a Topic</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="dropdown">
-            <label for="post-title">Pick a Topic</label>
+            <label for="topic-title">Pick a Forum</label>
             <button class="btn btn-secondary dropdown-toggle ml-5 pl-5" type="button" id="dropdownMenuButton"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Topics
+              Forums
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Topic 1</a>
-              <a class="dropdown-item" href="#">Topic 2</a>
-              <a class="dropdown-item" href="#">Topic 3</a>
+              <a class="dropdown-item" href="#">Forum 1</a>
+              <a class="dropdown-item" href="#">Forum 2</a>
+              <a class="dropdown-item" href="#">Forum 3</a>
             </div>
           </div>
           <div class="form-group">
-            <label for="post-title">Post Title</label>
-            <input id="post-title" class="form-control post-title" placeholder="Title">
+            <label for="topic-title">Topic Title</label>
+            <input id="topic-title" class="form-control topic-title" placeholder="Title">
           </div>
 
           <div class="form-group">
-            <label for="post-post">Post</label>
-            <input id="post-body" class="form-control post-body" placeholder="Post">
+            <label for="topic-post">Topic</label>
+            <input id="topic-body" class="form-control topic-body" placeholder="Post">
 
             </input>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="createpost">Create</button>
+            <button type="button" class="btn btn-primary" id="createtopic">Create</button>
           </div>
         </div>
       </div>
