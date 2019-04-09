@@ -9,10 +9,18 @@ module.exports = function(app) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.redirect("/");
+    res.send(true);
   });
 
-  // Route for signing up a user. The user's password is automatically hashed since we set that up in the User Modal
+  // Route for checking to see if a user is logged in
+  app.get("/api/isUserLoggedIn", function(req, res) {
+    if (req.user) {
+      return res.json({ response: true });
+    }
+    res.json({ response: false });
+  });
+
+  // Route for signing up a user. The user's password is automatically hashed with bcrypt since we set that up in the User Modal
   app.post("/api/signup", function(req, res) {
     console.log("signup");
     console.log(req.body);
@@ -25,8 +33,14 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         console.log(err);
-        res.json(err);
+        res.status(422).json(err.errors[0].message);
       });
+  });
+
+  // Route for logging out user
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
   });
 
   // Route for creating a post.
@@ -42,12 +56,6 @@ module.exports = function(app) {
         console.log(err);
         res.json(err);
       });
-  });
-
-  // Route for logging out user
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
   });
 
   // Route for getting some data about our user to be used client side

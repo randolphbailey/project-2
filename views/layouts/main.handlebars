@@ -196,6 +196,10 @@
             <label for="exampleInputPassword1">Password</label>
             <input class="form-control login-password" placeholder="Password" type="password">
           </div>
+          <div style="display: none" id="loginAlert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -224,6 +228,10 @@
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input class="form-control register-password" placeholder="Password" type="password">
+          </div>
+          <div style="display: none" id="registerAlert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
         </div>
         <div class="modal-footer">
