@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Topics = sequelize.define("Topics", {
     topicSubject: DataTypes.STRING,
+    topicBody: DataTypes.STRING,
     topicID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
