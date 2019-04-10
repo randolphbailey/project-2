@@ -48,7 +48,8 @@ module.exports = function(app) {
   app.post("/api/create", function(req, res) {
     db.Topics.create({
       topicSubject: req.body.title,
-      topicBody: req.body.body
+      topicBody: req.body.body,
+      ForumForumID: req.body.forumID
     })
       .then(function() {
         res.send(200);
