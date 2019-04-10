@@ -59,6 +59,27 @@ module.exports = function(app) {
       });
   });
 
+  // Route for creating a comment.
+  app.post("/api/comment", function(req, res) {
+    db.Posts.create({
+      postBody: req.body.body,
+      TopicTopicID: req.body.topicID
+    })
+      .then(function() {
+        res.send(200);
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+  });
+
+  // Route for logging out user
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
