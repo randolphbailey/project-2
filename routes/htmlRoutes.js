@@ -15,18 +15,33 @@ module.exports = function(app) {
     });
   });
 
-  //load posts and sort them by time created
-  // app.get("/bytime", function(req, res) {
-  //   db.Forums.findAll({
-  //     limit: 10,
-  //     order: [["updatedAt", "DESC"]]
-  //   }).then(function(results) {
-  //     res.render("index", {
-  //       msg: "Welcome!",
-  //       forums: results
-  //     });
-  //   });
-  // });
+  // Load posts and sort them by newest
+  app.get("/byTimeAsc", function(req, res) {
+    db.Topics.findAll({
+      limit: 10,
+      order: [["updatedAt", "ASC"]]
+    }).then(function(results) {
+      console.log(results);
+      res.render("index", {
+        msg: "Welcome!",
+        forums: results
+      });
+    });
+  });
+
+  // Load posts and sort them by oldest
+  app.get("/byTimeDesc", function(req, res) {
+    db.Topics.findAll({
+      limit: 10,
+      order: [["updatedAt", "DESC"]]
+    }).then(function(results) {
+      console.log(results);
+      res.render("index", {
+        msg: "Welcome!",
+        forums: results
+      });
+    });
+  });
 
   //Load topics page given a forum name
   app.get("/f/:id", function(req, res) {
@@ -39,7 +54,7 @@ module.exports = function(app) {
     });
   });
 
-  //Load topics page given a forum name
+  // Load topics page given a forum name
   app.get("/t/:id", function(req, res) {
     db.Topics.findAll({ where: { TopicTopicID: req.params.id } }).then(function(
       results
@@ -50,7 +65,7 @@ module.exports = function(app) {
     });
   });
 
-  // // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/members.html"));
   });
