@@ -53,6 +53,18 @@ module.exports = function(app) {
       });
     });
   });
+  // delete selected topic
+  // app.delete("delete/:id", function(req, res) {
+  //   db.Topics.destroy({ where: { topicID: req.params.id } }).then(function(
+  //     results
+  //   ) {
+  //     console.log(results);
+  //     res.render("index", {
+  //       msg: "Welcome!",
+  //       forums: results
+  //     });
+  //   });
+  // });
 
   // Load topics page given a forum name
   app.get("/t/:id", function(req, res) {

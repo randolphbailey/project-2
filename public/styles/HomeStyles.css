@@ -106,7 +106,9 @@ img::-moz-selection {
   text-transform: uppercase;
   color: #343a40;
 }
-
+.fa-trash-alt {
+  float: right;
+}
 h7 {
   font-size: 0.8em;
 }

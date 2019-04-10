@@ -1,6 +1,10 @@
 // create post
 // When the create button is clicked,grab the input val
 $(document).ready(function() {
+  // $(".fas").on("click", function() {
+  //   var id = $(this).attr("id");
+  //   deleteTopic(id);
+  // });
   $(".forum").on("click", function() {
     var forumid = $(this).attr("id");
     $("#createtopic").val(forumid);
@@ -32,7 +36,16 @@ $(document).ready(function() {
       forumID: forumID
     }).then(function() {
       window.location.reload();
-      // If there's an error, log the error
     });
   }
+
+  // This function does an API call to delete topics
+  //   function deleteTopic(id) {
+  //     $.ajax({
+  //       method: "DELETE",
+  //       url: "delete/" + id
+  //     }).then(function() {
+  //       window.location.reload();
+  //     });
+  //   }
 });

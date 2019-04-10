@@ -11,7 +11,17 @@ module.exports = function(app) {
     // They won't get this or even be able to access this page if they aren't authed
     res.send(true);
   });
-
+  // // delete selected topic
+  // app.delete("delete/:id", function(req, res) {
+  //   db.Topics.destroy({ where: { topicID: req.params.id } })
+  //     .then(function() {
+  //       res.send(200);
+  //     })
+  //     .catch(function(err) {
+  //       console.log(err);
+  //       res.json(err);
+  //     });
+  // });
   // Route for checking to see if a user is logged in
   app.get("/api/isUserLoggedIn", function(req, res) {
     if (req.user) {
