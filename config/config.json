@@ -1,6 +1,7 @@
 {
   "development": {
     "username": "root",
+    "port": 8888,
     "password": "root",
     "database": "testing",
     "host": "localhost",
