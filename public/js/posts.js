@@ -17,7 +17,7 @@ $(document).ready(function() {
     };
 
     console.log(topicData);
-
+    $("#createtopic").val("");
     createTopic(topicData.title, topicData.body, topicData.forumID);
     //empty the fields
     titleInput.val("");
