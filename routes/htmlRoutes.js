@@ -7,7 +7,7 @@ var isAuthenticated = require("../config/isAuthenticated");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Topics.findAll({}).then(function(results) {
+    db.Topics.findAll({ limit: 10 }).then(function(results) {
       res.render("index", {
         msg: "Welcome!",
         forums: results
@@ -43,20 +43,6 @@ module.exports = function(app) {
     });
   });
 
-  // route for deleting a specific topic
-  app.delete("delete/:id", function(req, res) {
-    console.log(req.params.id);
-    db.Topics.destroy({ where: { topicID: req.params.id } }).then(function(
-      results
-    ) {
-      console.log(results);
-      res.render("index", {
-        msg: "Welcome!",
-        forums: results
-      });
-    });
-  });
-
   //Load topics page given a forum name
   app.get("/f/:id", function(req, res) {
     db.Topics.findAll({ where: { ForumForumID: req.params.id } }).then(function(
@@ -70,17 +56,17 @@ module.exports = function(app) {
     });
   });
   // delete selected topic
-  // app.delete("delete/:id", function(req, res) {
-  //   db.Topics.destroy({ where: { topicID: req.params.id } }).then(function(
-  //     results
-  //   ) {
-  //     console.log(results);
-  //     res.render("index", {
-  //       msg: "Welcome!",
-  //       forums: results
-  //     });
-  //   });
-  // });
+  app.get("/delete/:id", function(req, res) {
+    db.Topics.destroy({ where: { topicID: req.params.id } }).then(function(
+      results
+    ) {
+      console.log(results);
+      res.render("index", {
+        msg: "Welcome!",
+        forums: results
+      });
+    });
+  });
 
   // Load topics page given a forum name
   app.get("/t/:id", function(req, res) {

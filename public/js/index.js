@@ -188,10 +188,12 @@ $.get("/api/isUserLoggedIn")
   .then(function(data) {
     if (data.response) {
       console.log("user is logged in");
+
       $("#createBtn").hide();
       $("#loginBtn").hide();
       $("#logoutBtn").show();
       $("#creatpostBtn").show();
+      // $("#creatpostBtn").attr("byid", "username");
     }
   })
   .catch(function(err) {
