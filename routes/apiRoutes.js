@@ -11,7 +11,7 @@ module.exports = function(app) {
     // They won't get this or even be able to access this page if they aren't authed
     res.send(true);
   });
-  // // delete selected topic
+  // delete selected topic
   // app.delete("delete/:id", function(req, res) {
   //   db.Topics.destroy({ where: { topicID: req.params.id } })
   //     .then(function() {

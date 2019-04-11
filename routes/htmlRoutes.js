@@ -43,13 +43,29 @@ module.exports = function(app) {
     });
   });
 
+  // route for deleting a specific topic
+  app.delete("delete/:id", function(req, res) {
+    console.log(req.params.id);
+    db.Topics.destroy({ where: { topicID: req.params.id } }).then(function(
+      results
+    ) {
+      console.log(results);
+      res.render("index", {
+        msg: "Welcome!",
+        forums: results
+      });
+    });
+  });
+
   //Load topics page given a forum name
   app.get("/f/:id", function(req, res) {
     db.Topics.findAll({ where: { ForumForumID: req.params.id } }).then(function(
       results
     ) {
-      res.render("forum", {
-        topics: results
+      console.log(results);
+      res.render("index", {
+        msg: "Welcome!",
+        forums: results
       });
     });
   });
