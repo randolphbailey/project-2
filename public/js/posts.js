@@ -39,7 +39,7 @@ $(document).ready(function() {
     });
   }
 
-  // This function does an API call to delete topics
+  //This function does an API call to delete topics
   //   function deleteTopic(id) {
   //     $.ajax({
   //       method: "DELETE",
