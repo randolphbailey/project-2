@@ -183,6 +183,7 @@ header.masthead {
   background-attachment: scroll;
   position: relative;
   background-size: cover;
+  background-image: url('../img/bkg.jpg');
 }
 header.masthead .overlay {
   position: absolute;
