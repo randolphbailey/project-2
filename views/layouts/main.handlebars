@@ -102,7 +102,8 @@
           <div class="card-header header"><b>Forums</b></div>
           <div class="card-body">
             <ul id="forum-left">
-              {{!-- <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/1">Left nav bar links</a></li> --}}
+              {{!-- <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/1">Left nav bar links</a></li>
+              --}}
             </ul>
           </div>
         </div>
@@ -137,24 +138,24 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
-            <li class="list-inline-item">
+            {{!-- <li class="list-inline-item">
               <a href="#">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
                 </span>
-              </a>
+              </a> --}}
             </li>
-            <li class="list-inline-item">
+            {{!-- <li class="list-inline-item">
               <a href="#">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
                 </span>
               </a>
-            </li>
+            </li> --}}
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://github.com/randolphbailey/project-2">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -248,13 +249,13 @@
         <div class="modal-body">
           <div class="dropdown">
             <label for="post-title">Pick a Forum</label>
-                <div class="col-auto my-1">
-                  <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                  <select class="custom-select mr-sm-2" id="forum-createPost">
-                    <option selected>Pick a Forum...</option>
-                    {{!-- <option value="1">Creat post in modal links</option>--}}
-                  </select>
-                </div>
+            <div class="col-auto my-1">
+              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+              <select class="custom-select mr-sm-2" id="forum-createPost">
+                <option selected>Pick a Forum...</option>
+                {{!-- <option value="1">Creat post in modal links</option>--}}
+              </select>
+            </div>
           </div>
           <div class="form-group">
             <label for="post-title">Post Title</label>
