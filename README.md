@@ -22,6 +22,7 @@ https://project-2.club
 <li>jQuery</li>
 <li>Bootstrap</li>
 <li>helmet</li>
+<li>bcrypt</li>
 
 
 # Database
