@@ -43,9 +43,7 @@ module.exports = function(app) {
   // route for deleting a specific post
   app.get("delete/:id", function(req, res) {
     console.log(req.params.id);
-    db.Posts.destroy({ where: { postID: req.params.id } }).then(function(
-      results
-    ) {
+    db.Posts.destroy({ where: { id: req.params.id } }).then(function(results) {
       console.log(results);
       res.render("index", {
         forums: results
@@ -55,9 +53,7 @@ module.exports = function(app) {
 
   //Load posts page given a forum name
   app.get("/f/:id", function(req, res) {
-    db.Posts.findAll({ where: { ForumID: req.params.id } }).then(function(
-      results
-    ) {
+    db.Posts.findAll({ where: { id: req.params.id } }).then(function(results) {
       console.log(results);
       res.render("showArticle", {
         forums: results
