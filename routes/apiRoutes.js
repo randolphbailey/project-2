@@ -59,7 +59,8 @@ module.exports = function(app) {
     db.Topics.create({
       topicSubject: req.body.title,
       topicBody: req.body.body,
-      ForumForumID: req.body.forumID
+      ForumID: req.body.id,
+      UserID: req.body.user.id
     })
       .then(function() {
         res.send(200);
@@ -108,8 +109,8 @@ module.exports = function(app) {
 
   // Get all examples
   app.get("/api/examples", function(req, res) {
-    db.Posts.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+    db.Posts.findAll({}).then(function(dbExample) {
+      res.json(dbExample);
     });
   });
 
@@ -126,6 +127,13 @@ module.exports = function(app) {
     db.Posts.destroy({ where: { id: req.params.id } }).then(function(
       dbExample
     ) {
+      res.json(dbExample);
+    });
+  });
+
+  // Getting forum title data
+  app.get("/api/gettingForumTitles", function(req, res) {
+    db.Forums.findAll({}).then(function(dbExample) {
       res.json(dbExample);
     });
   });
