@@ -1,0 +1,23 @@
+<!-- Main Content -->
+
+{{#each comments}}
+<a href="p/{{this.id}}" class="forumwhite" author="{{this.UserId}}">
+    <div class="card-body mb-2">
+        <div class="post-subtitle nav-item" scope="col">
+            <a class="nav-link">
+                {{this.commentBody}}
+            </a>
+        </div>
+    </div>
+</a>
+
+{{/each}}
+<!-- Pager -->
+<div class="clearfix">
+    <a class="btn btn-primary float-right mt-3" href="#">Older Posts &rarr;</a>
+</div>
+</div>
+</div>
+</div>
+
+<hr>

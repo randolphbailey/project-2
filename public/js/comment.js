@@ -21,7 +21,8 @@ $(document).ready(function() {
   function createComment(body, postID) {
     $.post("/api/comment", {
       body: body,
-      postID: postID
+      PostId: postID,
+      UserId: 1
     }).then(function() {
       window.location.reload();
       // If there's an error, log the error
