@@ -1,31 +1,34 @@
 // create post
 // When the create button is clicked,grab the input val
 $(document).ready(function() {
-  $(".submitPost").on("click", function() {
-    var postID = $(this).attr("id");
+  $(".submit-comment").on("click", function() {
+    var postID = $(this).attr("data-id");
 
-    var bodyInput = $("#post-body");
-    var postData = {
-      body: bodyInput.val().trim(),
-      postID: postID
+    var bodyInput = $(".comment-body[data-id=" + postID + "]");
+    var commentData = {
+      commentBody: bodyInput.val().trim(),
+      PostId: postID
     };
 
-    console.log(postData);
+    console.log(commentData);
 
-    createComment(postData.body, postData.postID);
+    createComment(commentData);
     //empty the fields
     bodyInput.val("");
   });
 
   // Does a post to the create route. If successful, we are redirected to the main page
-  function createComment(body, postID) {
-    $.post("/api/comment", {
-      body: body,
-      PostId: postID,
-      UserId: 1
-    }).then(function() {
+  function createComment(commentData) {
+    $.post("/api/comment", commentData).then(function() {
       window.location.reload();
       // If there's an error, log the error
     });
   }
+
+  // Delete comment
+  $(".delete-comment").on("click", function() {
+    $.get("/api/comment/delete/" + $(this).attr("data-id")).then(function() {
+      window.location.reload();
+    });
+  });
 });
