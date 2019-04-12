@@ -49,8 +49,8 @@
             <a class="nav-link" href="/about">About</a>
           </li> --}}
           <li class="nav-item">
-            <a class="nav-link" id="creattopicBtn" href="/topic" data-toggle="modal" data-target="#createtopicModal">Create
-              Topic</a>
+            <a class="nav-link" id="creatpostBtn" href="/post" data-toggle="modal" data-target="#createpostModal">Create
+              Post</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="loginBtn" href="/login" data-toggle="modal" data-target="#loginModal">Login</a>
@@ -237,8 +237,8 @@
       </div>
     </div>
   </div>
-  <!-- Create Topic Modal -->
-  <div class="modal fade" id="createtopicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  <!-- Create Post Modal -->
+  <div class="modal fade" id="createpostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -250,7 +250,7 @@
         </div>
         <div class="modal-body">
           <div class="dropdown">
-            <label for="topic-title">Pick a Forum</label>
+            <label for="post-title">Pick a Forum</label>
                 <div class="col-auto my-1">
                   <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
                   <select class="custom-select mr-sm-2" id="forum-createPost">
@@ -260,19 +260,19 @@
                 </div>
           </div>
           <div class="form-group">
-            <label for="topic-title">Topic Title</label>
-            <input id="topic-title" class="form-control topic-title" placeholder="Title">
+            <label for="post-title">Post Title</label>
+            <input id="post-title" class="form-control post-title" placeholder="Title">
           </div>
 
           <div class="form-group">
-            <label for="topic-post">Topic</label>
-            <input id="topic-body" class="form-control topic-body" placeholder="Post">
+            <label for="post-post">Post</label>
+            <input id="post-body" class="form-control post-body" placeholder="Post">
 
             </input>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="createtopic">Create</button>
+            <button type="button" class="btn btn-primary" id="createpost">Create</button>
           </div>
         </div>
       </div>

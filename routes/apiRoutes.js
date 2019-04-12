@@ -46,9 +46,9 @@ module.exports = function(app) {
 
   // Route for creating a post.
   app.post("/api/create", function(req, res) {
-    db.Topics.create({
-      topicSubject: req.body.title,
-      topicBody: req.body.body,
+    db.Posts.create({
+      postSubject: req.body.title,
+      postBody: req.body.body,
       ForumID: req.body.id,
       UserID: req.body.user.id
     })
@@ -65,7 +65,7 @@ module.exports = function(app) {
   app.post("/api/comment", function(req, res) {
     db.Posts.create({
       postBody: req.body.body,
-      TopicTopicID: req.body.topicID
+      postID: req.body.postID
     })
       .then(function() {
         res.send(200);

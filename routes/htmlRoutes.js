@@ -43,10 +43,10 @@ module.exports = function(app) {
     });
   });
 
-  // route for deleting a specific topic
+  // route for deleting a specific post
   app.delete("delete/:id", function(req, res) {
     console.log(req.params.id);
-    db.Posts.destroy({ where: { topicID: req.params.id } }).then(function(
+    db.Posts.destroy({ where: { postID: req.params.id } }).then(function(
       results
     ) {
       console.log(results);
@@ -72,7 +72,7 @@ module.exports = function(app) {
 
   // delete selected post
   // app.delete("delete/:id", function(req, res) {
-  //   db.Posts.destroy({ where: { topicID: req.params.id } }).then(function(
+  //   db.Posts.destroy({ where: { postID: req.params.id } }).then(function(
   //     results
   //   ) {
   //     console.log(results);
@@ -85,10 +85,8 @@ module.exports = function(app) {
 
   // Load posts page given a forum name
   app.get("/t/:id", function(req, res) {
-    db.Posts.findAll({ where: { TopicTopicID: req.params.id } }).then(function(
-      results
-    ) {
-      res.render("topic", {
+    db.Posts.findAll({ where: { id: req.params.id } }).then(function(results) {
+      res.render("post", {
         posts: results
       });
     });

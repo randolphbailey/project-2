@@ -3,30 +3,30 @@
 $(document).ready(function() {
   $(".forum").on("click", function() {
     var forumid = $(this).attr("id");
-    $("#createtopic").val(forumid);
+    $("#createpost").val(forumid);
   });
-  $("#createtopic").on("click", function() {
-    var titleInput = $("#topic-title");
-    var bodyInput = $("#topic-body");
-    var forumid = $("#createtopic").val();
-    // var postedby = $("#createtopic").attr("byid");
+  $("#createpost").on("click", function() {
+    var titleInput = $("#post-title");
+    var bodyInput = $("#post-body");
+    var forumid = $("#createpost").val();
+    // var postedby = $("#createpost").attr("byid");
 
-    var topicData = {
+    var postData = {
       title: titleInput.val().trim(),
       body: bodyInput.val().trim(),
       forumID: forumid
     };
 
-    console.log(topicData);
-    $("#createtopic").val("");
-    createTopic(topicData.title, topicData.body, topicData.forumID);
+    console.log(postData);
+    $("#createpost").val("");
+    createPost(postData.title, postData.body, postData.forumID);
     //empty the fields
     titleInput.val("");
     bodyInput.val("");
   });
 
   // Does a post to the create route. If successful, we are redirected to the main page
-  function createTopic(title, body, forumID) {
+  function createPost(title, body, forumID) {
     $.post("/api/create", {
       title: title,
       body: body,

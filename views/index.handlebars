@@ -1,15 +1,15 @@
 <!-- Main Content -->
 
 {{#each forums}}
-<a href="show/{{this.topicID}}" class="forumwhite"> {{this.topicBy}}
-    <h2 class="post-title card-header header">{{this.topicSubject}}<a href="delete/{{this.topicID}}"><i class="forumwhite fas fa-trash-alt"
-                id="{{this.topicID}}"></i>
+<a href="show/{{this.postID}}" class="forumwhite"> {{this.postBy}}
+    <h2 class="post-title card-header header">{{this.postSubject}}<a href="delete/{{this.postID}}"><i class="forumwhite fas fa-trash-alt"
+                id="{{this.postID}}"></i>
         </a> </h2>
     <div class="card-body mb-2">
 
         <div class="post-subtitle nav-item" scope="col">
             <a class="nav-link">
-                {{this.topicBody}}
+                {{this.postBody}}
             </a>
         </div>
 
@@ -24,7 +24,7 @@
         </ul>
         {{/each}}
         <input class="form-control mt-5 post-body" id="post-body"></input>
-        <button type="button" class="btn btn-secondary submitPost mt-1" id="{{this.topicID}}">Submit</button>
+        <button type="button" class="btn btn-secondary submitPost mt-1" id="{{this.postID}}">Submit</button>
     </div>
 </a>
 
