@@ -40,23 +40,33 @@ module.exports = function(app) {
     });
   });
 
-  // route for deleting a specific post
-  app.get("/delete/:id", function(req, res) {
-    db.Posts.destroy({ where: { id: req.params.id } }).then(function(results) {
-      console.log(results);
-      res.render("index", {
-        forums: results
-      });
-    });
-  });
-
   //Load posts page given a forum name
   app.get("/f/:id", function(req, res) {
-    db.Posts.findAll({ where: { id: req.params.id } }).then(function(results) {
+    db.Posts.findAll({
+      where: { ForumId: req.params.id },
+      include: [db.Comments]
+    }).then(function(results) {
       console.log(results);
-      res.render("index", {
-        forums: results
-      });
+      var hbsObject = {
+        posts: results
+      };
+
+      // for loop to keep track of what Post we're looking at
+      for (i = 0; i < results.length; i++) {
+        if (req.user && req.user.id === results[i].UserId) {
+          results[i].displayDelete = true;
+        }
+        // for loop to go through the Comments of that Post
+        for (j = 0; j < results[i].Comments.length; j++) {
+          // check to see if req.user.id === Post[i].Comments[j].UserId
+          // if it is, make a new property in that Comments object, displayDelete = true
+          if (req.user && req.user.id === results[i].Comments[j].UserId) {
+            results[i].Comments[j].displayDelete = true;
+          }
+        }
+      }
+
+      res.render("index", hbsObject);
     });
   });
 
