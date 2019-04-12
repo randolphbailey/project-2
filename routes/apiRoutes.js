@@ -44,6 +44,21 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
+  // Route for getting some data about our user to be used client side
+  app.get("/api/user_data", function(req, res) {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      res.json({
+        username: req.user.username,
+        id: req.user.id
+      });
+    }
+  });
+  // ---------- End Passport ----------
+
   // Route for creating a post.
   app.post("/api/create", function(req, res) {
     db.Posts.create({
@@ -74,51 +89,6 @@ module.exports = function(app) {
         console.log(err);
         res.json(err);
       });
-  });
-
-  // Route for logging out user
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      res.json({
-        username: req.user.username,
-        id: req.user.id
-      });
-    }
-  });
-  // ---------- End Passport ----------
-
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Posts.findAll({}).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Posts.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    // eslint-disable-next-line prettier/prettier
-    db.Posts.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.json(dbExample);
-    });
   });
 
   // Getting forum title data

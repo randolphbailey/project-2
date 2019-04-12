@@ -9,7 +9,6 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Posts.findAll({}).then(function(results) {
       res.render("index", {
-        msg: "Welcome!",
         forums: results
       });
     });
@@ -23,7 +22,6 @@ module.exports = function(app) {
     }).then(function(results) {
       console.log(results);
       res.render("index", {
-        msg: "Welcome!",
         forums: results
       });
     });
@@ -37,21 +35,19 @@ module.exports = function(app) {
     }).then(function(results) {
       console.log(results);
       res.render("index", {
-        msg: "Welcome!",
         forums: results
       });
     });
   });
 
   // route for deleting a specific post
-  app.delete("delete/:id", function(req, res) {
+  app.get("delete/:id", function(req, res) {
     console.log(req.params.id);
     db.Posts.destroy({ where: { postID: req.params.id } }).then(function(
       results
     ) {
       console.log(results);
       res.render("index", {
-        msg: "Welcome!",
         forums: results
       });
     });
@@ -64,30 +60,7 @@ module.exports = function(app) {
     ) {
       console.log(results);
       res.render("showArticle", {
-        msg: "Welcome!",
         forums: results
-      });
-    });
-  });
-
-  // delete selected post
-  // app.delete("delete/:id", function(req, res) {
-  //   db.Posts.destroy({ where: { postID: req.params.id } }).then(function(
-  //     results
-  //   ) {
-  //     console.log(results);
-  //     res.render("index", {
-  //       msg: "Welcome!",
-  //       forums: results
-  //     });
-  //   });
-  // });
-
-  // Load posts page given a forum name
-  app.get("/t/:id", function(req, res) {
-    db.Posts.findAll({ where: { id: req.params.id } }).then(function(results) {
-      res.render("post", {
-        posts: results
       });
     });
   });
