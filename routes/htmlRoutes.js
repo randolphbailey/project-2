@@ -42,7 +42,6 @@ module.exports = function(app) {
 
   // route for deleting a specific post
   app.get("delete/:id", function(req, res) {
-    console.log(req.params.id);
     db.Posts.destroy({ where: { id: req.params.id } }).then(function(results) {
       console.log(results);
       res.render("index", {
