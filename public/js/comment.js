@@ -2,26 +2,26 @@
 // When the create button is clicked,grab the input val
 $(document).ready(function() {
   $(".submitPost").on("click", function() {
-    var topicID = $(this).attr("id");
+    var postID = $(this).attr("id");
 
     var bodyInput = $("#post-body");
-    var topicData = {
+    var postData = {
       body: bodyInput.val().trim(),
-      topicID: topicID
+      postID: postID
     };
 
-    console.log(topicData);
+    console.log(postData);
 
-    createComment(topicData.body, topicData.topicID);
+    createComment(postData.body, postData.postID);
     //empty the fields
     bodyInput.val("");
   });
 
   // Does a post to the create route. If successful, we are redirected to the main page
-  function createComment(body, topicID) {
+  function createComment(body, postID) {
     $.post("/api/comment", {
       body: body,
-      topicID: topicID
+      postID: postID
     }).then(function() {
       window.location.reload();
       // If there's an error, log the error

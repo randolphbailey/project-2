@@ -44,44 +44,6 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
-  // Route for creating a post.
-  app.post("/api/create", function(req, res) {
-    db.Topics.create({
-      topicSubject: req.body.title,
-      topicBody: req.body.body,
-      ForumID: req.body.id,
-      UserID: req.body.user.id
-    })
-      .then(function() {
-        res.send(200);
-      })
-      .catch(function(err) {
-        console.log(err);
-        res.json(err);
-      });
-  });
-
-  // Route for creating a comment.
-  app.post("/api/comment", function(req, res) {
-    db.Posts.create({
-      postBody: req.body.body,
-      TopicTopicID: req.body.topicID
-    })
-      .then(function() {
-        res.send(200);
-      })
-      .catch(function(err) {
-        console.log(err);
-        res.json(err);
-      });
-  });
-
-  // Route for logging out user
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
@@ -97,28 +59,36 @@ module.exports = function(app) {
   });
   // ---------- End Passport ----------
 
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Posts.findAll({}).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  // Route for creating a post.
+  app.post("/api/create", function(req, res) {
+    db.Posts.create({
+      postSubject: req.body.title,
+      postBody: req.body.body,
+      ForumId: req.body.id,
+      UserId: 1
+    })
+      .then(function() {
+        res.send(200);
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Posts.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    // eslint-disable-next-line prettier/prettier
-    db.Posts.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.json(dbExample);
-    });
+  // Route for creating a comment.
+  app.post("/api/comment", function(req, res) {
+    db.Posts.create({
+      postBody: req.body.body,
+      postID: req.body.postID
+    })
+      .then(function() {
+        res.send(200);
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
   });
 
   // Getting forum title data
