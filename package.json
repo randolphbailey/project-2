@@ -7,10 +7,6 @@
 		"url": "https://github.com/randolphbailey/project-2.git"
 	},
 	"main": "server.js",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/randolphbailey/project-2.git"
-	},
 	"scripts": {
 		"start": "node server.js",
 		"run": "nodemon server.js",
