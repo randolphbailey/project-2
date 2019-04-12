@@ -59,7 +59,7 @@ module.exports = function(app) {
 
   //Load posts page given a forum name
   app.get("/f/:id", function(req, res) {
-    db.Posts.findAll({ where: { ForumForumID: req.params.id } }).then(function(
+    db.Posts.findAll({ where: { ForumID: req.params.id } }).then(function(
       results
     ) {
       console.log(results);
