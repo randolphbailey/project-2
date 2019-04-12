@@ -63,12 +63,13 @@ module.exports = function(app) {
       results
     ) {
       console.log(results);
-      res.render("index", {
+      res.render("showArticle", {
         msg: "Welcome!",
         forums: results
       });
     });
   });
+
   // delete selected post
   // app.delete("delete/:id", function(req, res) {
   //   db.Posts.destroy({ where: { topicID: req.params.id } }).then(function(
