@@ -1,20 +1,29 @@
-#Project -2 Forum page
 
-####Link to deployed site
+# project-2
 
-- https://project-2.club
+#Link to deployed site	
+https://project-2.club
 
-### Overview
 
-The website is designed to be a hub for whoever wants to discuss or post an opinion about a specific topic.
-The user needs to create an account first in order to be able to create posts and comment on other people's post and start discussions.
+# ForumPage
+<li>Is a public forum, on which people of all backgrounds with all sorts of interests may post their opinions, comments, et</li>
+<li>The user needs to create an account first in order to be able to create posts and comment on other people's post and start discussions.</li>
 
-###Technologies used
-*AWS
-*jQuery
-*Bootstrap
-*passport
-*express
-*express-handlebares
-*express-session
-*helmet
+# Technology used:
+<li>AWS</li>
+
+
+# Libraries used:
+<li>express</li>
+<li>express-handlebars</li>
+<li>express-session</li>
+<li>passport</li>
+<li>sequelize</li>
+<li>jQuery</li>
+<li>Bootstrap</li>
+<li>helmet</li>
+
+
+# Database
+<li>MySQL</li>
+
