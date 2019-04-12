@@ -3,7 +3,7 @@ var LocalStrategy = require("passport-local").Strategy;
 
 var db = require("../models");
 
-// Telling passport we want to use a "Local Strategy" - by default that is with a username and password
+// Telling passport we want to use a "Local Strategy" which means we wilkl handle storing the user name and password.
 passport.use(
   new LocalStrategy(function(username, password, done) {
     // When a user tries to sign in

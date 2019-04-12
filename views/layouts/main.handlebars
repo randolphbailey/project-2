@@ -17,7 +17,7 @@
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
-  {{!-- Favicon to be added later --}}
+  {{!-- Favicon --}}
   <link rel="shortcut icon" type="image/ico" href="#" />
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  {{!-- moment in case we need it to save time of somments and posts --}}
+  {{!-- moment in case we need it to save time of comments and posts --}}
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
@@ -68,13 +68,8 @@
                 aria-haspopup="true" aria-expanded="false">
                 Forums
               </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/f/1">Forum 1</a>
-                <a class="dropdown-item" href="/f/2">Forum 2</a>
-                <a class="dropdown-item" href="/f/3">Forum 3</a>
-                <a class="dropdown-item" href="/f/4">Forum 4</a>
-                <a class="dropdown-item" href="/f/5">Forum 5</a>
-                <a class="dropdown-item" href="/f/6">Forum 6</a>
+              <div class="dropdown-menu" id="forum-dropdown" aria-labelledby="dropdownMenuButton">
+                {{!-- <a class="dropdown-item" href="/f/1">Dropdown nav bar links</a> --}}
               </div>
             </div>
           </li>
@@ -109,14 +104,8 @@
         <div class="card bkg2">
           <div class="card-header header"><b>Forums</b></div>
           <div class="card-body">
-            <ul class="">
-              <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/1">Forum 1</a></li>
-              <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/2">Forum 2</a></li>
-              <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/3">Forum 3</a></li>
-              <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/4">Forum 4</a></li>
-              <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/5">Forum 5</a></li>
-              <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/6">Forum 6</a></li>
-
+            <ul id="forum-left">
+              {{!-- <li class="nav-item" scope="col"><a class="nav-link forumwhite" href="/f/1">Left nav bar links</a></li> --}}
             </ul>
           </div>
         </div>
@@ -254,7 +243,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Create a Topic</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Create a Post</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -262,18 +251,13 @@
         <div class="modal-body">
           <div class="dropdown">
             <label for="topic-title">Pick a Forum</label>
-            <button class="btn btn-secondary dropdown-toggle ml-5 pl-5" type="button" id="dropdownMenuButton"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Forums
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item forum" href="#" id="1">Forum 1</a>
-              <a class="dropdown-item forum" href="#" id="2">Forum 2</a>
-              <a class="dropdown-item forum" href="#" id="3">Forum 3</a>
-              <a class="dropdown-item forum" href="#" id="4">Forum 4</a>
-              <a class="dropdown-item forum" href="#" id="5">Forum 5</a>
-              <a class="dropdown-item forum" href="#" id="6">Forum 6</a>
-            </div>
+                <div class="col-auto my-1">
+                  <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                  <select class="custom-select mr-sm-2" id="forum-createPost">
+                    <option selected>Pick a Forum...</option>
+                    {{!-- <option value="1">Creat post in modal links</option>--}}
+                  </select>
+                </div>
           </div>
           <div class="form-group">
             <label for="topic-title">Topic Title</label>

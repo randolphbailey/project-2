@@ -48,15 +48,46 @@ if (process.env.NODE_ENV === "test") {
   syncOptions = { force: true };
 }
 
-// Starting the server, syncing our models ------------------------------------/
+// Starting the server, syncing our models and adding in the forums
+var forumNamesArr = [
+  { name: "Movies", description: "Movies" },
+  { name: "TV Show", description: "TV Show" },
+  { name: "Food", description: "Food" },
+  { name: "Hobbies", description: "Hobbies" },
+  { name: "Outdoors", description: "Outdoors" },
+  { name: "Gaming", description: "Gaming" }
+];
+
 db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+  createForumRows(0);
 });
+
+function createForumRows(i) {
+  db.Forums.create({
+    forumName: forumNamesArr[i].name,
+    forumDescription: forumNamesArr[i].description
+  }).then(function() {
+    i++;
+    if (i < 6) {
+      createForumRows(i);
+    } else {
+      db.Forums.destroy({
+        where: {
+          id: {
+            $gt: 6
+          }
+        }
+      }).then(function() {
+        app.listen(PORT, function() {
+          console.log(
+            "==> Listening on port %s. Visit http://localhost:%s/ in your browser.",
+            PORT,
+            PORT
+          );
+        });
+      });
+    }
+  });
+}
 
 module.exports = app;

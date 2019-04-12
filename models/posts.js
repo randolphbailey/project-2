@@ -1,17 +1,27 @@
+// Post model
 module.exports = function(sequelize, DataTypes) {
   var Posts = sequelize.define("Posts", {
-    postBody: DataTypes.TEXT,
-    postID: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    postedBy: DataTypes.INTEGER,
-    postTopic: DataTypes.STRING
+    postSubject: DataTypes.STRING,
+    postBody: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   });
 
   Posts.associate = function(models) {
-    Posts.belongsTo(models.Topics);
+    Posts.hasMany(models.Comments, {
+      onDelete: "cascade"
+    });
+    Posts.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    Posts.belongsTo(models.Forums, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
 
   return Posts;
