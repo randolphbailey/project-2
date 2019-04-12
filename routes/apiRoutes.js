@@ -49,8 +49,8 @@ module.exports = function(app) {
     db.Posts.create({
       postSubject: req.body.title,
       postBody: req.body.body,
-      ForumID: req.body.id,
-      UserID: req.body.user.id
+      ForumId: req.body.id,
+      UserId: 1
     })
       .then(function() {
         res.send(200);

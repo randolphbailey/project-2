@@ -7,7 +7,7 @@ $(document).ready(function() {
   });
   $("#createpost").on("click", function() {
     var titleInput = $("#post-title");
-    var bodyInput = $("#post-body");
+    var bodyInput = $("#postBody");
     var forumid = $("#createpost").val();
     // var postedby = $("#createpost").attr("byid");
 
