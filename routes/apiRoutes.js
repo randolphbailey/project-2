@@ -78,9 +78,11 @@ module.exports = function(app) {
 
   // Route for creating a comment.
   app.post("/api/comment", function(req, res) {
+    console.log(req.body.PostId);
     db.Comments.create({
       commentBody: req.body.body,
-      id: req.body.postID
+      PostId: req.body.PostId,
+      UserId: 1
     })
       .then(function() {
         res.send(200);
