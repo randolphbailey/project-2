@@ -55,6 +55,18 @@ module.exports = function(app) {
       });
     });
   });
+  //Load one topic page
+  app.get("/show/:id", function(req, res) {
+    db.Topics.findAll({ where: { topicID: req.params.id } }).then(function(
+      results
+    ) {
+      console.log(results);
+      res.render("showArticle", {
+        msg: "Welcome!",
+        forums: results
+      });
+    });
+  });
   // delete selected topic
   app.get("/delete/:id", function(req, res) {
     db.Topics.destroy({ where: { topicID: req.params.id } }).then(function(
