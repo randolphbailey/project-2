@@ -3,6 +3,10 @@
 	"version": "1.0.0",
 	"description": "Project 2 Starter",
 	"main": "server.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/randolphbailey/project-2.git"
+	},
 	"scripts": {
 		"start": "node server.js",
 		"run": "nodemon server.js",
