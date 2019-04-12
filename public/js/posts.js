@@ -30,7 +30,7 @@ $(document).ready(function() {
     $.post("/api/create", {
       title: title,
       body: body,
-      forumID: forumID
+      id: forumID
     }).then(function() {
       window.location.reload();
     });

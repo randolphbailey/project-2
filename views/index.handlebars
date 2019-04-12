@@ -1,8 +1,8 @@
 <!-- Main Content -->
 
 {{#each forums}}
-<a href="show/{{this.postID}}" class="forumwhite"> {{this.postBy}}
-    <h2 class="post-title card-header header">{{this.postSubject}}<a href="delete/{{this.postID}}"><i class="forumwhite fas fa-trash-alt"
+<a href="show/{{this.id}}" class="forumwhite" author="{{this.UserId}}">
+    <h2 class="post-title card-header header">{{this.postSubject}}<a href="delete/{{this.id}}"><i class="forumwhite fas fa-trash-alt"
                 id="{{this.postID}}"></i>
         </a> </h2>
     <div class="card-body mb-2">
