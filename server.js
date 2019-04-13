@@ -51,7 +51,7 @@ if (process.env.NODE_ENV === "test") {
 // Starting the server, syncing our models and adding in the forums
 var forumNamesArr = [
   { name: "Movies", description: "Movies" },
-  { name: "TV Show", description: "TV Show" },
+  { name: "TV Shows", description: "TV Shows" },
   { name: "Food", description: "Food" },
   { name: "Hobbies", description: "Hobbies" },
   { name: "Outdoors", description: "Outdoors" },
