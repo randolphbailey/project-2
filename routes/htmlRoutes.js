@@ -7,9 +7,9 @@ var isAuthenticated = require("../config/isAuthenticated");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Posts.findAll({}).then(function(results) {
+    db.Posts.findAll({ include: [db.Comments] }).then(function(results) {
       res.render("index", {
-        forums: results
+        posts: results
       });
     });
   });
