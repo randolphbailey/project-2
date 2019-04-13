@@ -22,7 +22,7 @@ module.exports = function(app) {
     }).then(function(results) {
       console.log(results);
       res.render("index", {
-        forums: results
+        posts: results
       });
     });
   });
@@ -35,7 +35,7 @@ module.exports = function(app) {
     }).then(function(results) {
       console.log(results);
       res.render("index", {
-        forums: results
+        posts: results
       });
     });
   });
