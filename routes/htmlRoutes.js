@@ -58,7 +58,7 @@ module.exports = function(app) {
         }
         // for loop to go through the Comments of that Post
         for (j = 0; j < results[i].Comments.length; j++) {
-          // check to see if req.user.id === Post[i].Comments[j].UserId
+          // check to see if req.user.id === results[i].Comments[j].UserId
           // if it is, make a new property in that Comments object, displayDelete = true
           if (req.user && req.user.id === results[i].Comments[j].UserId) {
             results[i].Comments[j].displayDelete = true;
