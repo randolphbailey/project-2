@@ -65,7 +65,7 @@ module.exports = function(app) {
       postSubject: req.body.title,
       postBody: req.body.body,
       ForumId: req.body.id,
-      UserId: req.user.id
+      UserId: 1
     })
       .then(function() {
         res.send(200);
@@ -78,10 +78,12 @@ module.exports = function(app) {
 
   // Route for creating a comment.
   app.post("/api/comment", function(req, res) {
-    console.log("comment: ", req.body);
-    req.body.UserId = req.user.id;
-
-    db.Comments.create(req.body)
+    console.log(req.body.PostId);
+    db.Comments.create({
+      commentBody: req.body.body,
+      PostId: req.body.PostId,
+      UserId: 1
+    })
       .then(function() {
         res.send(200);
       })
@@ -95,22 +97,6 @@ module.exports = function(app) {
   app.get("/api/gettingForumTitles", function(req, res) {
     db.Forums.findAll({}).then(function(dbExample) {
       res.json(dbExample);
-    });
-  });
-
-  // Route for deleting a specific post
-  app.get("/api/post/delete/:id", function(req, res) {
-    db.Posts.destroy({ where: { id: req.params.id } }).then(function(results) {
-      res.json(results);
-    });
-  });
-
-  // Route for deleting a specific comment
-  app.get("/api/comment/delete/:id", function(req, res) {
-    db.Comments.destroy({ where: { id: req.params.id } }).then(function(
-      results
-    ) {
-      res.json(results);
     });
   });
 };

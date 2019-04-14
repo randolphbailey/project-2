@@ -29,6 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Handlebars
+app.get('/', (req,res) => res.render("login", {layout:'landingpage'}));
 app.engine(
   "handlebars",
   exphbs({
@@ -51,7 +52,7 @@ if (process.env.NODE_ENV === "test") {
 // Starting the server, syncing our models and adding in the forums
 var forumNamesArr = [
   { name: "Movies", description: "Movies" },
-  { name: "TV Shows", description: "TV Shows" },
+  { name: "TV Show", description: "TV Show" },
   { name: "Food", description: "Food" },
   { name: "Hobbies", description: "Hobbies" },
   { name: "Outdoors", description: "Outdoors" },

@@ -37,11 +37,6 @@ a:focus,
 a:hover {
   color: #0085a1;
 }
-
-.fa-trash-alt {
-  cursor: pointer;
-}
-
 blockquote {
   font-style: italic;
   color: #868e96;

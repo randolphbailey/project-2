@@ -35,11 +35,4 @@ $(document).ready(function() {
       window.location.reload();
     });
   }
-
-  // Delete post
-  $(".delete-post").on("click", function() {
-    $.get("/api/post/delete/" + $(this).attr("data-id")).then(function() {
-      window.location.reload();
-    });
-  });
 });
